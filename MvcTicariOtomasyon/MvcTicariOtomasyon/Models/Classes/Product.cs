@@ -28,6 +28,6 @@ namespace MvcTicariOtomasyon.Models.Classes
         [StringLength(300)]
         public string ProductImage { get; set; }
         public Category ProductCategory { get; set; }
-        public SaleMovement SaleMovement { get; set; }
+        public ICollection<SaleMovement> ProductSaleMovements { get; set; }
     }
 }

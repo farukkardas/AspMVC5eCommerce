@@ -16,9 +16,9 @@ namespace MvcTicariOtomasyon.Models.Classes
         public decimal SaleMovementPrice { get; set; }
         public decimal SaleMovementTotalPrice { get; set; }
 
-        public ICollection<Product> SaleProducts { get; set; }
-        public ICollection<Customer> SaleCustomers { get; set; }
-        public ICollection<Employee> SAleEmployees { get; set; }
+        public Product Products { get; set; }
+        public Customer Customers { get; set; }
+        public Employee Employees { get; set; }
 
     }
 }

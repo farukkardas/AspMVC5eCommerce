@@ -25,8 +25,8 @@ namespace MvcTicariOtomasyon.Models.Classes
         [Column(TypeName = "Varchar")]
         [StringLength(300)]
         public string EmployeeImage { get; set; }
-        public SaleMovement SaleMovement { get; set; }
-        public Department EmployeDepartment { get; set; }
+        public ICollection<SaleMovement> EmployeeSaleMovement { get; set; }
+        public Department Department { get; set; }
        
     }
 }

@@ -29,6 +29,6 @@ namespace MvcTicariOtomasyon.Models.Classes
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string CustomerMail { get; set; }
-        public SaleMovement SaleMovement { get; set; }
+        public ICollection<SaleMovement> CustomerSaleMovement { get; set; }
     }
 }
