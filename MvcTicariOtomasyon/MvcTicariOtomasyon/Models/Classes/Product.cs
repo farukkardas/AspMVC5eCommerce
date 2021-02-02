@@ -15,12 +15,17 @@ namespace MvcTicariOtomasyon.Models.Classes
         [Column(TypeName ="Varchar")]
         [StringLength(40)]
         public string ProductName { get; set; }
+       
         [Column(TypeName = "Varchar")]
         [StringLength(40)]
         public string ProductBrand { get; set; }
+
         public short ProductStock { get; set; }
+
         public decimal ProductPurchasePrice { get; set; }
+
         public decimal ProductSalePrice { get; set; }
+
         public bool ProductState { get; set; }
 
 

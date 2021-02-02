@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,10 +15,12 @@ namespace MvcTicariOtomasyon.Models.Classes
         public int SaleMovementUnit { get; set; }
         public decimal SaleMovementPrice { get; set; }
         public decimal SaleMovementTotalPrice { get; set; }
-
-        public Product Products { get; set; }
-        public Customer Customers { get; set; }
-        public Employee Employees { get; set; }
+        public int Productid { get; set; }
+        public int Customerid { get; set; }
+        public int Employeeid { get; set; }
+        public virtual Product Products { get; set; }
+        public virtual Customer Customers { get; set; }
+        public virtual Employee Employees { get; set; }
 
     }
 }

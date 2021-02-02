@@ -12,7 +12,7 @@ namespace MvcTicariOtomasyon.Models.Classes
     {
         [Key]
         public int CustomerId { get; set; }
-
+       
         [Column(TypeName = "Varchar")]
         [StringLength(40)]
         public string CustomerName { get; set; }
@@ -29,6 +29,8 @@ namespace MvcTicariOtomasyon.Models.Classes
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string CustomerMail { get; set; }
+
+        public bool Durum { get; set; }
         public ICollection<SaleMovement> CustomerSaleMovement { get; set; }
     }
 }

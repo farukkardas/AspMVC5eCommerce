@@ -1,0 +1,31 @@
+﻿@model MvcTicariOtomasyon.Models.Classes.Customer
+@{
+    ViewBag.Title = "GetCustomer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Müşteri Güncelleme Ekranı</h2>
+<br />
+
+@using (Html.BeginForm("CustomerUpdate", "Customer", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.CustomerId)
+
+    <p>Müşteri Adı</p>
+    @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+    <br />
+    <p>Müşteri Soyadı</p>
+    @Html.TextBoxFor(x => x.CustomerLastName, new { @class = "form-control" })
+    <br />
+    <p>Şehir</p>
+    @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })
+    <br />
+    <p>Mail</p>
+    @Html.TextBoxFor(x => x.CustomerSaleMovement, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Güncelle</button>
+</div>
+}
+
