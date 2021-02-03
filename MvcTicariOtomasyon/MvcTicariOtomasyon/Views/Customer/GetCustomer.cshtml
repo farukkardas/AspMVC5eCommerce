@@ -15,15 +15,19 @@
 
     <p>Müşteri Adı</p>
     @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CustomerName, "", new { @style = "color:red" })
     <br />
     <p>Müşteri Soyadı</p>
     @Html.TextBoxFor(x => x.CustomerLastName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CustomerLastName, "", new { @style = "color:red" })
     <br />
     <p>Şehir</p>
     @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CustomerCity, "", new { @style = "color:red" })
     <br />
     <p>Mail</p>
-    @Html.TextBoxFor(x => x.CustomerSaleMovement, new { @class = "form-control" })
+    @Html.TextBoxFor(x => x.CustomerMail, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CustomerMail, "", new { @style = "color:red" })
     <br />
     <button class="btn btn-primary">Güncelle</button>
 </div>

@@ -1,0 +1,43 @@
+﻿@using MvcTicariOtomasyon.Models.Classes
+@model List<SaleMovement>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top: 20px; margin-left: 10px; margin-right: 20px">
+
+    <tr>
+        <th>ID</th>
+        <th>Ürün Adı</th>
+        <th>Müşteri Adı</th>
+        <th>Personel Adı</th>
+        <th>Adet</th>
+        <th>Fiyat</th>
+        <th>Toplam Fiyat</th>
+        <th>Tarih</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    
+    @foreach (var w in Model)
+    {
+
+        <tr>
+            <td>@w.SaleMovementId</td>
+            <td>@w.Products.ProductName</td>
+            <td>@w.Customers.CustomerName @w.Customers.CustomerLastName</td>
+            <td>@w.Employees.EmployeeName @w.Employees.EmployeeLastName</td>
+            <td>@w.SaleMovementUnit</td>
+            <td>@w.SaleMovementPrice</td>
+            <td>@w.SaleMovementTotalPrice</td>
+            <td>@w.SaleMovementDate</td>
+            <td><a href="~/Employee/GetEmployee/@w.Employeeid" class="btn btn-primary">Güncelle</a></td>
+            <td><a href="~/Department/DepartmentEmployeeResult/@w.Employeeid" class="btn btn-info">Detaylar</a></td>
+        </tr>
+    }
+
+
+
+</table>
+<a href="~/Sale/NewSale" class="btn btn-success">Yeni Satış Ekle</a>

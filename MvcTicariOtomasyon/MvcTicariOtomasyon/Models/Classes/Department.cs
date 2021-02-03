@@ -13,7 +13,8 @@ namespace MvcTicariOtomasyon.Models.Classes
         public int DepartmentId { get; set; }
 
         [Column(TypeName = "Varchar")]
-        [StringLength(30)]
+        [StringLength(40, ErrorMessage = "Maksimum 30 karakter içerebilir!")]
+        [Required(ErrorMessage = "Bu alan boş bırakılamaz!")]
         public string DepartmentName { get; set; }
         public bool State { get; set; }
         public ICollection<Employee> EmployeesDepartment { get; set; }

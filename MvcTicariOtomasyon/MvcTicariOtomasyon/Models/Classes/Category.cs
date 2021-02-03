@@ -14,7 +14,8 @@ namespace MvcTicariOtomasyon.Models.Classes
 
 
         [Column(TypeName = "Varchar")]
-        [StringLength(40)]
+        [StringLength(40,ErrorMessage = "Maksiumum 40 karakter kullanılabilir!")]
+        [Required(ErrorMessage = "Kategori adı boş bırakılamaz!")]
         public string CategoryName { get; set; }
         public ICollection<Product> Products { get; set; }
         

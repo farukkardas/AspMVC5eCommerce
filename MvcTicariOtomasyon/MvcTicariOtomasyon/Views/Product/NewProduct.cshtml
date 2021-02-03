@@ -12,28 +12,36 @@
 <form class="form-group" method="post">
     @Html.LabelFor(x => x.ProductName)
     @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x=>x.ProductName,"", new {@style="color:red"})
     <br />
     @Html.LabelFor(x => x.ProductBrand)
     @Html.TextBoxFor(x => x.ProductBrand, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x=>x.ProductBrand,"", new {@style="color:red"})
     <br />
     @Html.LabelFor(x => x.ProductStock)
     @Html.TextBoxFor(x => x.ProductStock, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x=>x.ProductStock,"", new {@style="color:red"})
     <br />
     @Html.LabelFor(x => x.ProductPurchasePrice)
     @Html.TextBoxFor(x => x.ProductPurchasePrice, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x=>x.ProductPurchasePrice,"", new {@style="color:red"})
     <br />
     @Html.LabelFor(x => x.ProductSalePrice)
     @Html.TextBoxFor(x => x.ProductSalePrice, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x=>x.ProductBrand,"", new {@style="color:red"})
     <br />
     @Html.LabelFor(x => x.ProductCategory.CategoryId)
-    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.rslt1, new { @class = "form-control" })
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.rslt1, new { @class = "form-control"})
+    @Html.ValidationMessageFor(x=>x.CategoryId,"", new {@style="color:red"})
     @*@Html.TextBoxFor(x=>x.CategoryId, new { @class = "form-control" })*@
     <br />
     @Html.LabelFor(x => x.ProductImage)
     @Html.TextBoxFor(x => x.ProductImage, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x=>x.ProductImage,"", new {@style="color:red"})
     <br />
     @Html.LabelFor(x => x.ProductState)
     @Html.TextBoxFor(x => x.ProductState, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x=>x.ProductState,"", new {@style="color:red"})
     <br />
     <button class="btn btn-success">Ekle</button>
 </form>

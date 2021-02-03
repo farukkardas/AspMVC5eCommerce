@@ -25,6 +25,11 @@ namespace MvcTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult AddDepartment(Department department)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("AddDepartment");
+            }
+
             department.State = true;
             context.Departments.Add(department);
             context.SaveChanges();
@@ -49,6 +54,11 @@ namespace MvcTicariOtomasyon.Controllers
 
         public ActionResult UpdateDepartment(Department p)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("GetDepartment");
+            }
+
             var dept = context.Departments.Find(p.DepartmentId);
             dept.DepartmentName = p.DepartmentName;
             context.SaveChanges();

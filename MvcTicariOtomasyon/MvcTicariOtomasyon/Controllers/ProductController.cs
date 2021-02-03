@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -21,19 +22,27 @@ namespace MvcTicariOtomasyon.Controllers
         [HttpGet]
         public ActionResult NewProduct()
         {
+            
             List<SelectListItem> result1 = (from x in context.Categories.ToList()
-                select new SelectListItem()
-                {
-                    Text = x.CategoryName,
-                    Value = x.CategoryId.ToString()
-                }).ToList();
-            ViewBag.rslt1 = result1;
+                    select new SelectListItem()
+                    {
+                        Text = x.CategoryName,
+                        Value = x.CategoryId.ToString()
+                    }).ToList();
+                ViewBag.rslt1 = result1;
 
-            return View();
+                return View();
+
+           
         }
 
         public ActionResult NewProduct(Product product)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("NewProduct");
+            }
+
             context.Products.Add(product);
             context.SaveChanges();
             return RedirectToAction("Index");

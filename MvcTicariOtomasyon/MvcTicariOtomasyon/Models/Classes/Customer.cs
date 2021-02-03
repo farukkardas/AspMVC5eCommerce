@@ -14,20 +14,24 @@ namespace MvcTicariOtomasyon.Models.Classes
         public int CustomerId { get; set; }
        
         [Column(TypeName = "Varchar")]
-        [StringLength(40)]
+        [StringLength(40, ErrorMessage = "Maksimum 40 karakter içerebilir!")]
+        [Required(ErrorMessage = "Bu alan boş bırakılamaz!")]
         public string CustomerName { get; set; }
         
         [Column(TypeName = "Varchar")]
-        [StringLength(40)]
+        [StringLength(40, ErrorMessage = "Maksimum 40 karakter içerebilir!")]
+        [Required(ErrorMessage = "Bu alan boş bırakılamaz!")]
         public string CustomerLastName { get; set; }
         
         [Column(TypeName = "Varchar")]
-        [StringLength(15)]
+        [StringLength(15, ErrorMessage = "Maksimum 15 karakter içerebilir!")]
+        [Required(ErrorMessage = "Bu alan boş bırakılamaz!")]
         public string CustomerCity { get; set; }
 
    
         [Column(TypeName = "Varchar")]
-        [StringLength(50)]
+        [StringLength(100, ErrorMessage = "Maksimum 100 karakter içerebilir!")]
+        [Required(ErrorMessage = "Bu alan boş bırakılamaz!")]
         public string CustomerMail { get; set; }
 
         public bool Durum { get; set; }

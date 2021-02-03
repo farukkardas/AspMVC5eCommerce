@@ -11,6 +11,7 @@
     <div class="form-group">
         @Html.LabelFor(x=>x.CategoryName)
         @Html.TextBoxFor(x=>x.CategoryName, new {@class = "form-control"})
+        @Html.ValidationMessageFor(x=>x.CategoryName,"", new {@style="color:red"})
         @Html.HiddenFor(x=>x.CategoryId)
     </div>
     <p></p><button class="btn btn-primary" style="margin-left: 5px">Güncelle</button>

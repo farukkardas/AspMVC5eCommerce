@@ -10,6 +10,7 @@
 <form class="form-group" method="post">
     <p>Departman Adı</p>
     @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.DepartmentName, "", new { @style = "color:red" })
     <br />
     <button class="btn btn-success" style="margin-left: 5px;">Ekle</button>
 </form>

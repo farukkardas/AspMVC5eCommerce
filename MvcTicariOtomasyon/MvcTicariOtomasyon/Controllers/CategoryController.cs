@@ -23,6 +23,11 @@ namespace MvcTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult CategoryAdd(Category kCategory)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("CategoryAdd");
+            }
+
             c.Categories.Add(kCategory);
             c.SaveChanges();
             return RedirectToAction("Index"); 
@@ -44,6 +49,10 @@ namespace MvcTicariOtomasyon.Controllers
 
         public ActionResult UpdateCategory(Category k)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("GetCategory");
+            }
             var kategori = c.Categories.Find(k.CategoryId);
             kategori.CategoryName = k.CategoryName;
             c.SaveChanges();
