@@ -60,6 +60,58 @@ namespace MvcTicariOtomasyon.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult GetSale(int id)
+        {
+            List<SelectListItem> degerList = (from x in context.Products.ToList()
+                select new SelectListItem
+                {
+                    Text = x.ProductName,
+                    Value = x.ProductId.ToString()
+                }).ToList();
+            ViewBag.dgr1 = degerList;
+
+            List<SelectListItem> degerList2 = (from x in context.Customers.ToList()
+                select new SelectListItem
+                {
+                    Text = x.CustomerName + " " + x.CustomerLastName,
+                    Value = x.CustomerId.ToString()
+                }).ToList();
+
+            ViewBag.dgr2 = degerList2;
+
+            List<SelectListItem> degerList3 = (from x in context.Employees.ToList()
+                select new SelectListItem
+                {
+                    Text = x.EmployeeName + " " + x.EmployeeLastName,
+                    Value = x.EmployeeId.ToString()
+                }).ToList();
+
+            ViewBag.dgr3 = degerList3;
+            var result = context.SaleMovements.Find(id);
+            return View("GetSale", result);
+            
+        }
+
+        public ActionResult UpdateSale(SaleMovement saleMovement)
+        {
+            var result = context.SaleMovements.Find(saleMovement.SaleMovementId);
+            result.Customerid = saleMovement.Customerid;
+            result.Productid = saleMovement.Productid;
+            result.Employeeid = saleMovement.Employeeid;
+            result.SaleMovementPrice = saleMovement.SaleMovementPrice;
+            result.SaleMovementTotalPrice = saleMovement.SaleMovementTotalPrice;
+            result.SaleMovementUnit = saleMovement.SaleMovementUnit;
+            result.SaleMovementDate = saleMovement.SaleMovementDate;
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult PrintSale(int id)
+        {
+            var results = context.SaleMovements.Where(x => x.SaleMovementId == id).ToList();
+            return View(results);
+        }
     }
 
     

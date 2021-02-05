@@ -1,0 +1,40 @@
+﻿@using System.Activities.Debugger
+@model MvcTicariOtomasyon.Models.Classes.SaleMovement
+@{
+    ViewBag.Title = "GetSale";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Satış Hareketi Güncelle</h2>
+<br />
+
+
+@using (Html.BeginForm("UpdateSale", "Sale", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.SaleMovementId)
+
+    <p>Ürünler</p>
+    @Html.DropDownListFor(x => x.Productid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    <p>Müşteri</p>
+    @Html.DropDownListFor(x => x.Customerid, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    <br />
+    <p>Personel</p>
+    @Html.DropDownListFor(x => x.Employeeid, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+    <br />
+    <p>Satılan Ürünün Adedi</p>
+    @Html.TextBoxFor(x => x.SaleMovementUnit, new { @class = "form-control" })
+    <br />
+    <p>Satış Öncesi Fiyat</p>
+    @Html.TextBoxFor(x => x.SaleMovementPrice, new { @class = "form-control" })
+    <br />
+    <p>Satış Sonrası Fiyat</p>
+    @Html.TextBoxFor(x => x.SaleMovementTotalPrice, new { @class = "form-control" })
+    <br />
+    <p>Satış Tarihi</p>
+    @Html.TextBoxFor(x => x.SaleMovementDate, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Güncelle</button>
+}
+

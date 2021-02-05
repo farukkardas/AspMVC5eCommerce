@@ -88,5 +88,11 @@ namespace MvcTicariOtomasyon.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult ListProducts()
+        {
+            var results = context.Products.ToList();
+            return View(results);
+        }
     }
 }

@@ -1,0 +1,46 @@
+﻿@using MvcTicariOtomasyon.Models.Classes
+@model List<SaleMovement>
+@{
+    ViewBag.Title = "PrintSale";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Satış Hareketleri</h2>
+
+<table class="table table-condensed">
+    <tr>
+        <td>Satış ID</td>
+        <td>Ürün</td>
+        <td>Müşteri</td>
+        <td>Personel</td>
+        <td>Fiyat</td>
+        <td>Adet</td>
+        <td>Toplam Fiyat</td>
+        <td>Tarih</td>
+        <td>Yazdır</td>
+
+    </tr>
+
+    @foreach (var y in Model)
+    {
+        <tr>
+            <td>@y.SaleMovementId</td>
+            <td>@y.Products.ProductName</td>
+            <td>@y.Customers.CustomerName @y.Customers.CustomerLastName </td>
+            <td>@y.Employees.EmployeeName @y.Employees.EmployeeLastName</td>
+            <td>@y.SaleMovementPrice</td>
+            <td>@y.SaleMovementUnit</td>
+            <td>@y.SaleMovementTotalPrice</td>
+            <td>@y.SaleMovementDate</td>
+            @*//  <td><a href="#" class="btn btn-default" style="background-color:antiquewhite">Yazdır</a></td>*@
+        </tr>
+
+    }
+
+
+
+</table>
+<td><a href="#" class="btn btn-default" style="background-color:antiquewhite">Yazdır</a></td>
+
+
+
